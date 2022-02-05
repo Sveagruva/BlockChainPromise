@@ -13,7 +13,7 @@ contract Promise {
     address[] checkers;
     mapping(address => Vote) results;
 
-    constructor(address _goodPromise, address _badPromise, address[] memory _checkers, uint8 _numberOfCheckersToPass, uint256 _expirationTime) {
+    constructor(address _goodPromise, address _badPromise, address[] memory _checkers, uint8 _numberOfCheckersToPass, uint256 _expirationTime) payable {
         require(_goodPromise != _badPromise, "not allowed to give promise to yourself");
         require(_expirationTime > block.timestamp, "not allowed to set expiration time in the past");
 
