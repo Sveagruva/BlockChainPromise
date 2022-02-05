@@ -15,6 +15,7 @@ contract Promise {
 
     constructor(address _goodPromise, address _badPromise, address[] memory _checkers, uint8 _numberOfCheckersToPass, uint256 _expirationTime) {
         require(_goodPromise != _badPromise, "not allowed to give promise to yourself");
+        require(_expirationTime > block.timestamp, "not allowed to set expiration time in the past");
 
         goodPromise = _goodPromise;
         badPromise = _badPromise;
